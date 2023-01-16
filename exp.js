@@ -283,6 +283,7 @@ var show_profile_lockout = {
 
     return(html);
   }, 
+  choices: jsPsych.NO_KEYS,
   trial_duration: function() {
     t = phase=='encoding' ? ENCODE_TIME : LOCKOUT_TIME
     return(t)
