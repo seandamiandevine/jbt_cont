@@ -16,7 +16,7 @@ const QUAL_LEVS        = [11,12,13,14,15,16];      // qualification levels
 const NOBS             = 4;                        // n observations per cell
 const N_ENCODE         = 2;                        // number of encoding repetitions
 const CHOICE_TIME      = 10000                     // response deadline
-const ENCODE_TIME      = 3000;                     // amount of time each profile appears during encoding phase (ms.)
+const ENCODE_TIME      = 2000;                     // amount of time each profile appears during encoding phase (ms.)
 const LOCKOUT_TIME     = 500;                      // amount of time before a response can be made in choice phase (ms.)
 const CHOICE_KEYS      = ['e', 'i'];               // keys to choose decks (choice phase)
 const IMG_SIZE         = [175, 175];               // [w,h] of cards (in px.)
@@ -74,21 +74,21 @@ function JBTHTML(img, qual, show_prompt=true, size=IMG_SIZE) {
   if(show_prompt) {
     html += 
     `<tr >
-    <td><p style="visibility: hidden;">blankblank</p></td>
+    <td><p style="visibility: hidden;">blank</p></td>
     <td></td>
-    <td><p style="visibility: hidden;">blankblank</p></td>
+    <td><p style="visibility: hidden;">blank</p></td>
   </tr>
 
    <tr >
-    <td><p style="visibility: hidden;">blankblank</p></td>
+    <td><p style="visibility: hidden;">blank</p></td>
     <td></td>
-    <td><p style="visibility: hidden;">blankblank</p></td>
+    <td><p style="visibility: hidden;">blank</p></td>
   </tr>
 
   <tr >
-    <td> <img src="${BASE_IMG_URL}Reject.jpg" width=75 height=75> </td> 
+    <td> <img src="${BASE_IMG_URL}Reject.jpg" width=70 height=70> </td> 
     <td></td>
-    <td><img src="${BASE_IMG_URL}Accept.jpg" width=75 height=75> </td>
+    <td><img src="${BASE_IMG_URL}Accept.jpg" width=70 height=70> </td>
   </tr>`
   };
   
@@ -232,7 +232,7 @@ var debrief = {
     type: 'instructions',
     pages: [
      '<p align="left">Thank you for completing this study! The general purpose of this research is to investigate how people may use social information even when they are asked to make non-social judgments. In this study, you were asked to make a series of accept or reject decisions on a number of applicants and were told to accept half of them. Within the pool of applicants, we varied the qualifications of the applicants to create two groups. Based on their overall qualifications, there was one set of applicants that should have been accepted and another set that should have been rejected.  Furthermore, within each set of applicants that should have been accepted or rejected, there were people with varying levels of physical attractiveness. We are interested in whether these different levels of attractiveness altered the way you decided who should have been accepted and who should have been rejected.  For example, people may be more accurate at deciding who should or should not be accepted when presented with attractive people compared to unattractive people.  Or people may be too lenient or forgiving when deciding on attractive people, and too tough on unattractive people. We also asked you to complete a survey about your attitudes towards attractive and unattractive people. We are interested in how these opinions performance may relate to performance on the honor society task. The results from this study will help us to better understand how people use social information to make evaluations or decisions about others, even when they might not want to use that social information.\
-<br><br>Thank you again for your participation in this study.  If you have further questions about the study, please contact Jordan Axt at jra3ee@virginia.edu or 434-243-7787. In addition, if you have any concerns about any aspect of the study, you may contact Tonya Moon, Ph.D., Chair, Institutional Review Board for the Social and Behavioral Sciences, One Morton Drive, Suite 500, University of Virginia, P.O. Box 800392, Charlottesville, VA 22908-0392. Telephone: (434) 924-5999.\
+<br><br>Thank you again for your participation in this study.  If you have further please email the lead investigator, Jordan Axt (jordan.axt@mcgill.ca). If you have any ethical concerns or complaints about your participation in this study, and want to speak with someone not on the research team, please contact the McGill Ethics Manager at 514-398-6831 or lynda.mcneil@mcgill.ca.\
 <br><br>If you are interested in learning more about this topic, you may find the readings below as a good place to start:\
 <br><br>[1] Caruso, E. M., Rahnev, D. A., & Banaji, M. R. (2009). Using conjoint analysis to detect discrimination: Revealing covert preferences from overt choices. Social Cognition, 27(1), 128-137.\
 <br><br>[2] Dion, K., Berscheid, E., Walster, E. (1972). What is beautiful is good. Journal of Personality and Social Psychology, 24 (3), 285-290.\</p>',
@@ -515,7 +515,7 @@ end_screen = {
 if(DEBUGMODE) {
   timeline = [jbt_intro, viewing_instructions, init_choice_phase, choice_phase];
 } else {
-  timeline = [jbt_intro, viewing_instructions, init_encoding_phase, encoding_phase, choice_instructions, init_choice_phase, choice_phase, question_instructions, bias_questions, demographics_age, demographics_other, debrief, end_screen];
+  timeline = [fs, jbt_intro, viewing_instructions, init_encoding_phase, encoding_phase, choice_instructions, init_choice_phase, choice_phase, question_instructions, bias_questions, demographics_age, demographics_other, debrief, end_screen];
 }
 
 
