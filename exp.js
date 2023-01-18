@@ -10,17 +10,17 @@ jsPsych.data.addProperties({
   prol_id: PROL_ID,
 });
 
-const DEBUGMODE        = false;                    // whether to skip instructions + encoding (for debugging) 
-const N_ATTRACT_LEVS   = 5;                        // number of attractiveness levels
-const QUAL_LEVS        = [11,12,13,14,15,16];      // qualification levels
-const NOBS             = 4;                        // n observations per cell
-const N_ENCODE         = 2;                        // number of encoding repetitions
-const CHOICE_TIME      = 10000                     // response deadline
-const ENCODE_TIME      = 2000;                     // amount of time each profile appears during encoding phase (ms.)
-const LOCKOUT_TIME     = 500;                      // amount of time before a response can be made in choice phase (ms.)
-const CHOICE_KEYS      = ['e', 'i'];               // keys to choose decks (choice phase)
-const IMG_SIZE         = [175, 175];               // [w,h] of cards (in px.)
-const ITI              = 500;                      // iti (in ms.)
+const DEBUGMODE        = false;               // whether to skip instructions + encoding (for debugging) 
+const N_ATTRACT_LEVS   = 5;                   // number of attractiveness levels
+const QUAL_LEVS        = [11,12,13,14,15,16]; // qualification levels
+const NOBS             = 4;                   // n observations per cell
+const N_ENCODE         = 2;                   // number of encoding repetitions
+const CHOICE_TIME      = 10000                // response deadline
+const ENCODE_TIME      = 2000;                // amount of time each profile appears during encoding phase (ms.)
+const LOCKOUT_TIME     = 500;                 // amount of time before a response can be made in choice phase (ms.)
+const CHOICE_KEYS      = ['e', 'i'];          // keys to choose decks (choice phase)
+const IMG_SIZE         = [175, 175];          // [w,h] of cards (in px.)
+const ITI              = 500;                 // iti (in ms.)
 
 
 // ****************************************************************************
@@ -396,7 +396,7 @@ var bias_questions = {
   type: 'survey-multi-choice',
   questions: [
     {
-      prompt: "Which statement best describes how you wanted to perform on the task?", 
+      prompt: "Which statement best describes your performance on the task?", 
       name: 'describes_performance', 
       options: [
         'I was extremely easier on physically attractive applicants and extremely tougher on physically unattractive applicants',
