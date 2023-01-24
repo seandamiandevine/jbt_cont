@@ -89,7 +89,14 @@ function JBTHTML(img, qual, show_prompt=true, size=IMG_SIZE) {
     <td> <img src="${BASE_IMG_URL}Reject.jpg" width=70 height=70> </td> 
     <td></td>
     <td><img src="${BASE_IMG_URL}Accept.jpg" width=70 height=70> </td>
+  </tr>
+
+    <tr >
+    <td> <p> Press ${CHOICE_KEYS[0].toUpperCase()} </p> </td> 
+    <td></td>
+    <td> <p style="text-align:center"> Press ${CHOICE_KEYS[1].toUpperCase()} </p> </td>
   </tr>`
+
   };
   
   html += '</table>';
@@ -202,7 +209,7 @@ Importantly, this academic honor society is looking for very well-rounded applic
 var viewing_instructions = {
     type: 'instructions',
     pages: [   
-      `<p align='left'>On the next few screens, you will be seeing some applicant's credentials. This is just to get you familiar with the applicant pool.  For this round, there are ${GetObjSize(ENCODE_LIST)} credentials for you to view.\
+      `<p align='left'>On the next few screens, you will be seeing some applicant's credentials. This is just to get you familiar with the applicant pool.  For this round, there are ${GetObjSize(ENCODE_LIST)} applicants for you to view.\
  After you briefly see each applicant's credentials, you will then be presented with applicants one at a time. There will be a button on the screen for 'Accept' and another for 'Reject'.</p>`,
   ],
     show_clickable_nav: true
@@ -212,6 +219,7 @@ var choice_instructions = {
     type: 'instructions',
     pages: [   
       `<p align='left'>On the next screen, you will begin seeing each of the applicants, one at a time. You will also see a headshot of each applicant. \
+      You will see about 120 applicants today. \
 There will be one option for 'Accept' and another for 'Reject'. Press the 'E' key to REJECT an applicant and press the 'I' key to ACCEPT an applicant. \ 
 Again, you should be accepting approximately half of the applicants to reach the next round. \
 Finally, you will have to wait at least half of a second before making your decision, and the \
