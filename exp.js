@@ -11,8 +11,8 @@ jsPsych.data.addProperties({
 });
 
 const DEBUGMODE        = false;               // whether to skip instructions + encoding (for debugging) 
-const N_ATTRACT_LEVS   = 5;                   // number of attractiveness levels
-const QUAL_LEVS        = [11,12,13,14,15,16]; // qualification levels
+const N_ATTRACT_LEVS   = 2;                   // number of attractiveness levels
+const QUAL_LEVS        = [13,14];             // qualification levels
 const NOBS             = 4;                   // n observations per cell
 const N_ENCODE         = 2;                   // number of encoding repetitions
 const CHOICE_TIME      = 10000                // response deadline
@@ -148,13 +148,22 @@ GetObjSize = function(obj){
 // ****************************************************************************
 
 const BASE_IMG_URL = 'https://raw.githubusercontent.com/seandamiandevine/jbt_cont/main/stim/';
+
+// from v1: 
+// const IMG_FILES = {
+//   0:['0_166.png', '0_195.png', '0_220.png', '0_415.png', '0_416.png', '0_420.png', '0_441.png', '0_466.png', '0_496.png', '0_498.png', '0_520.png', '0_525.png', '0_585.png', '0_601.png', '0_638.png', '0_667.png', '0_680.png', '0_733.png', '0_756.png', '0_846.png', '0_852.png', '0_913.png', '0_924.png', '0_944.png'],
+//   1:['1_182.png', '1_251.png', '1_28.png', '1_282.png', '1_339.png', '1_356.png', '1_365.png', '1_444.png', '1_455.png', '1_519.png', '1_606.png', '1_7.png', '1_71.png', '1_820.png', '1_833.png', '1_834.png', '1_836.png', '1_908.png', '1_921.png', '1_956.png', '1_964.png', '1_976.png', '1_984.png', '1_996.png'],
+//   2:['2_139.png', '2_186.png', '2_256.png', '2_273.png', '2_276.png', '2_409.png', '2_42.png', '2_432.png', '2_434.png', '2_49.png', '2_595.png', '2_617.png', '2_683.png', '2_694.png', '2_731.png', '2_738.png', '2_754.png', '2_763.png', '2_780.png', '2_861.png', '2_866.png', '2_903.png', '2_91.png', '2_914.png'],
+//   3:['3_14.png', '3_141.png', '3_21.png', '3_266.png', '3_288.png', '3_296.png', '3_347.png', '3_369.png', '3_422.png', '3_504.png', '3_546.png', '3_567.png', '3_615.png', '3_636.png', '3_647.png', '3_674.png', '3_678.png', '3_714.png', '3_76.png', '3_767.png', '3_801.png', '3_912.png', '3_915.png', '3_999.png'],
+//   4:['4_1001.png', '4_159.png', '4_183.png', '4_265.png', '4_285.png', '4_294.png', '4_32.png', '4_374.png', '4_390.png', '4_46.png', '4_51.png', '4_514.png', '4_577.png', '4_648.png', '4_67.png', '4_684.png', '4_692.png', '4_736.png', '4_757.png', '4_758.png', '4_808.png', '4_842.png', '4_883.png', '4_960.png']
+// };
+
+// for v2: 
 const IMG_FILES = {
-  0:['0_166.png', '0_195.png', '0_220.png', '0_415.png', '0_416.png', '0_420.png', '0_441.png', '0_466.png', '0_496.png', '0_498.png', '0_520.png', '0_525.png', '0_585.png', '0_601.png', '0_638.png', '0_667.png', '0_680.png', '0_733.png', '0_756.png', '0_846.png', '0_852.png', '0_913.png', '0_924.png', '0_944.png'],
-  1:['1_182.png', '1_251.png', '1_28.png', '1_282.png', '1_339.png', '1_356.png', '1_365.png', '1_444.png', '1_455.png', '1_519.png', '1_606.png', '1_7.png', '1_71.png', '1_820.png', '1_833.png', '1_834.png', '1_836.png', '1_908.png', '1_921.png', '1_956.png', '1_964.png', '1_976.png', '1_984.png', '1_996.png'],
-  2:['2_139.png', '2_186.png', '2_256.png', '2_273.png', '2_276.png', '2_409.png', '2_42.png', '2_432.png', '2_434.png', '2_49.png', '2_595.png', '2_617.png', '2_683.png', '2_694.png', '2_731.png', '2_738.png', '2_754.png', '2_763.png', '2_780.png', '2_861.png', '2_866.png', '2_903.png', '2_91.png', '2_914.png'],
-  3:['3_14.png', '3_141.png', '3_21.png', '3_266.png', '3_288.png', '3_296.png', '3_347.png', '3_369.png', '3_422.png', '3_504.png', '3_546.png', '3_567.png', '3_615.png', '3_636.png', '3_647.png', '3_674.png', '3_678.png', '3_714.png', '3_76.png', '3_767.png', '3_801.png', '3_912.png', '3_915.png', '3_999.png'],
-  4:['4_1001.png', '4_159.png', '4_183.png', '4_265.png', '4_285.png', '4_294.png', '4_32.png', '4_374.png', '4_390.png', '4_46.png', '4_51.png', '4_514.png', '4_577.png', '4_648.png', '4_67.png', '4_684.png', '4_692.png', '4_736.png', '4_757.png', '4_758.png', '4_808.png', '4_842.png', '4_883.png', '4_960.png']
+  0: ["0_166.png", "0_220.png", "0_282.png", "0_339.png", "0_356.png", "0_365.png", "0_378.png", "0_415.png", "0_416.png", "0_441.png", "0_455.png", "0_481.png", "0_496.png", "0_519.png", "0_520.png", "0_525.png", "0_631.png", "0_641.png", "0_671.png", "0_680.png", "0_733.png", "0_756.png", "0_768.png", "0_781.png", "0_836.png", "0_846.png", "0_85.png", "0_921.png", "0_956.png", "0_996.png"],
+  1: ["1_188.png", "1_224.png", "1_228.png", "1_247.png", "1_259.png", "1_281.png", "1_289.png", "1_305.png", "1_312.png", "1_325.png", "1_354.png", "1_445.png", "1_540.png", "1_543.png", "1_603.png", "1_624.png", "1_630.png", "1_644.png", "1_651.png", "1_670.png", "1_772.png", "1_813.png", "1_827.png", "1_840.png", "1_857.png", "1_870.png", "1_886.png", "1_900.png", "1_926.png", "1_935.png"]
 };
+
 
 
 // ****************************************************************************
