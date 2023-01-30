@@ -431,6 +431,7 @@ var bias_questions = {
       }
     ],
     on_finish: function(data) {
+      console.log(data)
       jsPsych.data.addProperties({
         describes_performance: JSON.parse(data.responses)['describes_performance'],
         wanted_performance:    JSON.parse(data.responses)['wanted_performance']
@@ -514,7 +515,7 @@ var fs = {
 
 end_screen = {
   type: 'html-keyboard-response',
-  stimulus: 'Thank you for your participation! You are done the study. Your completion code is XXXXXXX. Copy this code <b>now</b>.\nThen, press SPACE and this page should redirect to Prolific shortly. If it does not, paste the code you copied into your Prolific app.',
+  stimulus: 'Thank you for your participation! You are done the study. Your completion code is CANMVJ95. Copy this code <b>now</b>.\nThen, press SPACE and this page should redirect to Prolific shortly. If it does not, paste the code you copied into your Prolific app.',
   choices: ['space'],
 };
 
@@ -549,6 +550,6 @@ jsPsych.init({
         return null;
       }
 
-    // window.open('https://app.prolific.co/submissions/complete?cc=C1CI1SVL', '_blank');
+    window.open('https://app.prolific.co/submissions/complete?cc=CANMVJ95', '_blank');
     }
 });
